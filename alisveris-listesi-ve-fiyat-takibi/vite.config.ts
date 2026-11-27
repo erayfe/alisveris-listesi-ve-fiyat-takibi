@@ -3,13 +3,14 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: '/alisveris-listesi-ve-fiyat-takibi/',
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg', 'pwa-192x192.png', 'pwa-512x512.png'],
       manifest: {
-        name: 'Sepet & Fiyat Hafızası',
+        name: 'Alışveriş Listesi ve Fiyat Takibi',
         short_name: 'FiyatHafızası',
         description: 'Çevrimdışı çalışan yerel alışveriş listesi ve çoklu market fiyat takip uygulaması',
         theme_color: '#059669',
@@ -17,6 +18,7 @@ export default defineConfig({
         display: 'standalone',
         lang: 'tr',
         start_url: '/alisveris-listesi-ve-fiyat-takibi/',
+        scope: '/alisveris-listesi-ve-fiyat-takibi/',
         icons: [
           {
             src: 'pwa-192x192.png',
