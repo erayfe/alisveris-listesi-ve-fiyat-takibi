@@ -186,7 +186,7 @@ export async function importBackupJSON(
       if (d.shopping_lists.length) await db.shopping_lists.bulkPut(d.shopping_lists);
       if (d.list_items.length) await db.list_items.bulkPut(d.list_items);
       if (d.price_records.length) await db.price_records.bulkPut(d.price_records);
-      if (d.app_meta.length) await db.app_meta.bulkPut(d.app_meta);
+      if (d.app_meta.length) await db.app_meta.bulkPut(d.app_meta.map((m) => ({ key: m.key, value: m.value ?? null })));
 
       await db.app_meta.put({ key: 'initialSeeded', value: true });
       await db.app_meta.put({ key: 'lastBackupAt', value: nowIso() });
