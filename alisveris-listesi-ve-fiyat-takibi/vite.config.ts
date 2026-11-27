@@ -16,7 +16,7 @@ export default defineConfig({
         background_color: '#f8fafc',
         display: 'standalone',
         lang: 'tr',
-        start_url: '/',
+        start_url: '/alisveris-listesi-ve-fiyat-takibi/',
         icons: [
           {
             src: 'pwa-192x192.png',
