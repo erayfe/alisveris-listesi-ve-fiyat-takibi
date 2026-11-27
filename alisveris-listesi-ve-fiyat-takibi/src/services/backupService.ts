@@ -235,8 +235,7 @@ export async function exportPricesCSV(): Promise<void> {
 
   const escapeCsv = (val: unknown): string => {
     const str = val === null || val === undefined ? '' : String(val);
-    if (str.includes(';') || str.includes('"') || str.includes('
-')) {
+    if (str.includes(';') || str.includes('"') || str.includes('\n')) {
       return `"${str.replace(/"/g, '""')}"`;
     }
     return str;
@@ -273,9 +272,8 @@ export async function exportPricesCSV(): Promise<void> {
   }
 
   // UTF-8 BOM for proper Turkish characters in Microsoft Excel
-  const bom = '﻿';
-  const blob = new Blob([bom + lines.join('
-')], { type: 'text/csv;charset=utf-8' });
+  const bom = '\uFEFF';
+  const blob = new Blob([bom + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
   triggerDownload(blob, `fiyat-gecmisi-${nowIso().slice(0, 10)}.csv`);
 }
 

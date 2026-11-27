@@ -358,9 +358,9 @@ export const ListDetailPage: React.FC<ListDetailPageProps> = ({
               onOpenPriceSheet({
                 source: 'purchase',
                 productId: prod.id,
-                listId: list.id,
+                listId: list!.id,
                 listItemId: item.id,
-                defaultStoreId: list.defaultStoreId,
+                defaultStoreId: list!.defaultStoreId,
                 initialQuantity: item.quantity,
                 initialUnit: item.unit,
                 existingRecord: linkedPrice ?? null
